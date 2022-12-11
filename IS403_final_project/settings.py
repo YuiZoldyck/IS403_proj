@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,17 +78,22 @@ WSGI_APPLICATION = 'IS403_final_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-                'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'NAME': 'playlist',
-                'USER': 'postgres',
-                'PASSWORD': 'Andyman72599',
-                'HOST': 'localhost',
-                'PORT': '5432'
-                }
-}      
+# DATABASES = {
+#                 'default': {
+#                 'ENGINE': 'django.db.backends.postgresql',
+#                 'NAME': 'playlist',
+#                 'USER': 'postgres',
+#                 'PASSWORD': 'Andyman72599',
+#                 'HOST': 'localhost',
+#                 'PORT': '5432'
+#                 }
+# }      
 
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+DATABASES = {
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
