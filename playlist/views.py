@@ -50,7 +50,7 @@ def addRecordView(request):
 
         song.save()
 
-    return redirect(indexPageView)
+    return redirect(viewPageView)
 
 # link to update existing song
 def editPageView(request, sid):
@@ -76,7 +76,7 @@ def submitChanges(request,sid):
         song.YearReleased = year
 
         song.save()
-    return redirect(indexPageView)
+    return redirect(viewPageView)
     
 # delete song from playlist
 def deletePageView(request, sid):
