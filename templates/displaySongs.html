@@ -6,7 +6,7 @@
         <div >
             <img src="{% static 'img/CassetteRemix 1.svg'%}" alt="cassette tape" class = 'cassettediv'>
         </div>
-        <select name ="orderby" id="orderby" hx-get="/reorder/" hx-trigger"change" hx-target="#table">
+        <select name ="orderby" style="margin-bottom: 5%;"class="btn btn-outline-primary dropdown-toggle" id="orderby" hx-get="/reorder/" hx-trigger"change" hx-target="#table">
             <option selected disabled value="SongName">Order By</option>
             {% for i in data.cats %}
                 <option value="{{ i }}">{{ i }}</option>
