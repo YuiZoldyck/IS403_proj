@@ -81,4 +81,4 @@ def submitChanges(request,sid):
 # delete song from playlist
 def deletePageView(request, sid):
     song = Songs.objects.get(id=sid).delete()
-    return redirect(indexPageView)
+    return redirect(viewPageView)
