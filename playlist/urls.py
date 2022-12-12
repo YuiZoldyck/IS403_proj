@@ -1,8 +1,9 @@
 from django.urls import include, path
-from .views import indexPageView, createPageView, editPageView, deletePageView, submitChanges, addRecordView, reorderTable
+from .views import indexPageView, viewPageView, createPageView, editPageView, deletePageView, submitChanges, addRecordView, reorderTable
 
 urlpatterns = [
     path('', indexPageView, name="index"),
+    path('view/', viewPageView, name="view"),
     path('create/', createPageView, name="create"),
     path('edit/<int:sid>', editPageView , name='edit'),
     path('addrecord/', addRecordView, name="add"),

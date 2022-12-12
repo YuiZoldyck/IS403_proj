@@ -5,6 +5,10 @@ from .models import Songs, Category
 
 # Create your views here.
 def indexPageView(request):
+    return render(request, 'index.html')
+
+
+def viewPageView(request):
     songs = Songs.objects.all().values()
     categories = Category.objects.all()
     context = {
